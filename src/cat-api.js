@@ -16,7 +16,7 @@ function fetchBreeds() {
         // console.log(responce.data)
         })
     .catch( error => {
-        throw new Error(error.statusText)
+        throw new Error(error.statusText = "Oops! Something went wrong! Try reloading the page!")
     }
     )
 };
@@ -26,5 +26,8 @@ return axios.get(`${BASE_URL}${IMG_SRCH}?${BREAD_IDS}${breedId}`)
 .then(responce => {
     return responce.data
     // console.log(responce.data)
+})
+.catch(error => {
+    throw new Error(error.statusText = "Oops! Something went wrong! Try reloading the page!");
 })
 }
