@@ -1,5 +1,6 @@
 import axios from "axios";
 export { fetchBreeds, fetchCatByBreed};
+import Notiflix from 'notiflix';
 
 axios.defaults.headers.common["x-api-key"] = "live_yp906wtcEPJuX5du0SOgJkHJeFbYyNaTl4Hd32P7anVvYHl8mjjlUIKSYquuHnJ6";
 
@@ -16,7 +17,7 @@ function fetchBreeds() {
         // console.log(responce.data)
         })
     .catch( error => {
-        throw new Error(error.statusText = "Oops! Something went wrong! Try reloading the page!")
+        throw new Error(error.statusText = Notiflix.Notify.warning(`${error}`))
     }
     )
 };

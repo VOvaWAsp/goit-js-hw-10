@@ -1,6 +1,11 @@
 import axios from "axios";
 import { fetchBreeds, fetchCatByBreed } from "./cat-api"
-import SlimSelect from 'slim-select'
+// import SlimSelect from 'slim-select'
+import Notiflix from 'notiflix';
+
+// new SlimSelect({
+//   select: '#selectElement'
+// })
 
 // https://api.thecatapi.com/v1/breeds
 
@@ -25,8 +30,12 @@ fetchBreeds()
     breadSelect.insertAdjacentHTML("beforeend", pets);
 })
 .catch(error => {
-    errors.style.visibility = "visible" 
-    errors.textContent = `${error}`
+    // errors.style.visibility = "visible" 
+    // errors.textContent = `${error}`
+    setTimeout(() => {
+        Notiflix.Notify.warning(`${error}`)
+        loader.style.display = "none"
+    }, 500);
 });
 
 
@@ -56,8 +65,12 @@ function handleChange() {
         catInfo.innerHTML = `${informations}`
     })
     .catch(error => {
-        errors.style.visibility = "visible"
-        errors.textContent = `${error}`
+        // errors.style.visibility = "visible"
+        // errors.textContent = `${error}`
+        setTimeout(() => {
+            Notiflix.Notify.warning(`${error}`)
+            loader.style.display = "none"
+        }, 500);
     })
 }
 
